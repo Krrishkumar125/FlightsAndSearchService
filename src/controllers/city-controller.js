@@ -10,7 +10,7 @@ const create = async (req,res) =>{
                 success : true,
                 message: "Successfully created city",
                 err : {}
-             })
+             });
          } catch (error) {
             console.log(error);
             return res.status(500).json({
@@ -18,7 +18,7 @@ const create = async (req,res) =>{
                 success: false,
                 message: "Not able to add a city",
                 err : error
-            })
+            });
          }
 }
 
@@ -30,7 +30,7 @@ const destroy = async (req,res) =>{
            success : true,
            message: "Successfully deleted a city",
            err : {}
-        })
+        });
     } catch (error) {
        console.log(error);
        return res.status(500).json({
@@ -38,7 +38,7 @@ const destroy = async (req,res) =>{
            success: false,
            message: "Not able to delete a city",
            err : error
-       })
+       });
     }
 }
 
@@ -50,7 +50,7 @@ const update = async (req,res) =>{
            success : true,
            message: "Successfully created city",
            err : {}
-        })
+        });
     } catch (error) {
        console.log(error);
        return res.status(500).json({
@@ -58,7 +58,7 @@ const update = async (req,res) =>{
            success: false,
            message: "Not able to update the city",
            err : error
-       })
+       });
     }
 }
 
@@ -70,7 +70,7 @@ const get = async (req,res) =>{
            success : true,
            message: "Successfully fetched a city",
            err : {}
-        })
+        });
     } catch (error) {
        console.log(error);
        return res.status(500).json({
@@ -78,7 +78,7 @@ const get = async (req,res) =>{
            success: false,
            message: "Not able to get the city",
            err : error
-       })
+       });
     }
 }
 
@@ -87,4 +87,4 @@ module.exports ={
     destroy,
     get,
     update
-}
+};

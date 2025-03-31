@@ -7,7 +7,7 @@ class CityRepository {
       return City;
     } catch (error) {
       console.log("Error in repository layer");
-      throw error;
+      throw {error};
     }
   }
   async deleteCity(cityId) {
@@ -20,7 +20,7 @@ class CityRepository {
       return true;
     } catch (error) {
       console.log("Error in repository layer");
-      throw error;
+      throw {error};
     }
   }
   async updateCity(cityId, data) {
@@ -33,7 +33,7 @@ class CityRepository {
       return City;
     } catch (error) {
       console.log("Error in repository layer");
-      throw error;
+      throw {error};
     }
   }
 
@@ -43,7 +43,7 @@ class CityRepository {
       return City;
     } catch (error) {
       console.log("Error in repository layer");
-      throw error;
+      throw {error};
     }
   }
 }
