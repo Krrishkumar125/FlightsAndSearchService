@@ -1,11 +1,12 @@
 const {AirportService} = require("../services/index");
+const {SuccessCodes ,  ServerErrorsCodes} = require("../utils/error-codes");
 
 const airportService = new AirportService();
 
 const create = async (req , res) => {
         try {
             const airport = await airportService.create(req.body);
-            return res.status(201).json({
+            return res.status(SuccessCodes.CREATED).json({
                 data:airport,
                 success:true,
                 message:"successfully created an airport",
@@ -13,7 +14,7 @@ const create = async (req , res) => {
             })
         } catch (error) {
                 console.log(error);
-                return res.status(500).json({
+                return res.status(ServerErrorsCodes.INTERNAL_SERVER_ERROR).json({
                     data: {},
                     success: false,
                     message: "Not able to create the airport",
@@ -26,7 +27,7 @@ const create = async (req , res) => {
 const destroy = async (req , res) => {
         try {
             const response = await airportService.delete(req.params.id);
-            return res.status(200).json({
+            return res.status(SuccessCodes.OK).json({
                 data:response,
                 success:true,
                 message:"successfully deleted the airport",
@@ -34,7 +35,7 @@ const destroy = async (req , res) => {
             })
         } catch (error) {
                 console.log(error);
-                return res.status(500).json({
+                return res.status(ServerErrorsCodes.INTERNAL_SERVER_ERROR).json({
                     data: {},
                     success: false,
                     message: "Not able to delete the airport",
@@ -46,7 +47,7 @@ const destroy = async (req , res) => {
 const update = async (req , res) => {
         try {
             const airport = await airportService.update(req.params.id , req.body);
-            return res.status(201).json({
+            return res.status(SuccessCodes.CREATED).json({
                 data:airport,
                 success:true,
                 message:"successfully updated the airport",
@@ -54,7 +55,7 @@ const update = async (req , res) => {
             })
         } catch (error) {
                 console.log(error);
-                return res.status(500).json({
+                return res.status(ServerErrorsCodes.INTERNAL_SERVER_ERROR).json({
                     data: {},
                     success: false,
                     message: "Not able to update the airport",
@@ -66,7 +67,7 @@ const update = async (req , res) => {
 const get = async (req , res) => {
         try {
             const airport = await airportService.get(req.params.id);
-            return res.status(200).json({
+            return res.status(SuccessCodes.OK).json({
                 data:airport,
                 success:true,
                 message:"successfully fetched an airport",
@@ -74,7 +75,7 @@ const get = async (req , res) => {
             })
         } catch (error) {
                 console.log(error);
-                return res.status(500).json({
+                return res.status(ServerErrorsCodes.INTERNAL_SERVER_ERROR).json({
                     data: {},
                     success: false,
                     message: "Not able to fetch the airport",
@@ -86,7 +87,7 @@ const get = async (req , res) => {
 const getAll = async (req , res) => {
         try {
             const airports = await airportService.create(req.query);
-            return res.status(200).json({
+            return res.status(SuccessCodes.OK).json({
                 data:airports,
                 success:true,
                 message:"successfully fetched the airports",
@@ -94,7 +95,7 @@ const getAll = async (req , res) => {
             })
         } catch (error) {
                 console.log(error);
-                return res.status(500).json({
+                return res.status(ServerErrorsCodes.INTERNAL_SERVER_ERROR).json({
                     data: {},
                     success: false,
                     message: "Not able to fetch the airports",
