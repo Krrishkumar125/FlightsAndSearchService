@@ -26,6 +26,9 @@ class FlightService{
     async getFlightData(flightId){
         try {
            const flight = await this.flightRepository.getFlight(flightId);
+           if(!flight){
+            throw {error:'No flight with this id'}
+           }
            return flight;
         } catch (error) {
             console.log("Error in Service layer");
@@ -37,6 +40,16 @@ class FlightService{
         try {
           const flights = await this.flightRepository.getAllFlight(data);
           return flights;
+        } catch (error) {
+            console.log("Error in Service layer");
+            throw {error};
+        }
+    }
+
+    async update(flightId , data){
+        try {
+            const response = await this.flightRepository.updateFlight(flightId,data);
+            return response;
         } catch (error) {
             console.log("Error in Service layer");
             throw {error};
