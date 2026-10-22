@@ -154,7 +154,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 📬 Contact
 
-Made with ❤️ by [Krrish Kumar](mailto:krrishkumar2028@gmail.com)  
+Made with ❤️ by [Krrish Kumar](mailto:krrishkumar200803@gmail.com)  
 Feel free to reach out for feedback, suggestions, or collaboration!
 
 ---
